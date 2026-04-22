@@ -8,11 +8,12 @@
     name="description"
     content="Peachees Shop — elevated activewear essentials with a soft editorial feel."
   />
+  <link rel="icon" type="image/jpeg" href="./assets/logo-peachees.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
 
@@ -21,9 +22,9 @@
       --bg: #f7f3ee;
       --surface: #fbf8f4;
       --surface-2: #efe7de;
-      --text: #2b221c;
-      --muted: #7d7065;
-      --line: rgba(43, 34, 28, 0.12);
+      --text: #181513;
+      --muted: #74685e;
+      --line: rgba(24, 21, 19, 0.12);
       --accent: #c98f79;
       --accent-deep: #b17763;
       --white: #ffffff;
@@ -49,8 +50,8 @@
       --text-sm: clamp(0.875rem, 0.84rem + 0.2vw, 1rem);
       --text-base: clamp(1rem, 0.97rem + 0.2vw, 1.125rem);
       --text-lg: clamp(1.125rem, 1.02rem + 0.45vw, 1.4rem);
-      --text-xl: clamp(1.7rem, 1.3rem + 1vw, 2.5rem);
-      --text-2xl: clamp(2.5rem, 2rem + 2vw, 4.75rem);
+      --text-xl: clamp(1.45rem, 1.2rem + 0.9vw, 2.1rem);
+      --text-2xl: clamp(2.4rem, 2rem + 2vw, 4.8rem);
 
       --container: 1180px;
       --transition: 220ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -84,15 +85,17 @@
       letter-spacing: 0.18em;
       font-size: var(--text-xs);
       color: var(--muted);
+      font-weight: 600;
     }
 
     h1, h2, h3 {
       margin: 0 0 var(--space-3);
-      font-family: "Cormorant Garamond", serif;
-      font-weight: 500;
-      line-height: 1.04;
-      letter-spacing: -0.02em;
+      font-family: "Inter", sans-serif;
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.06em;
       color: var(--text);
+      text-transform: uppercase;
     }
 
     p {
@@ -115,7 +118,7 @@
       align-items: center;
       justify-content: space-between;
       gap: var(--space-4);
-      min-height: 76px;
+      min-height: 86px;
     }
 
     .brand {
@@ -124,37 +127,10 @@
       gap: var(--space-3);
     }
 
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Cormorant Garamond", serif;
-      font-size: var(--text-lg);
-      background: var(--surface);
-    }
-
-    .brand-name {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.05;
-    }
-
-    .brand-name strong {
-      font-size: var(--text-sm);
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .brand-name span {
-      font-size: var(--text-xs);
-      color: var(--muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .brand-logo {
+      height: 54px;
+      width: auto;
+      object-fit: contain;
     }
 
     .nav {
@@ -162,6 +138,7 @@
       gap: var(--space-5);
       font-size: var(--text-sm);
       color: var(--muted);
+      font-weight: 500;
     }
 
     .nav a {
@@ -195,7 +172,7 @@
 
     .hero-copy h1 {
       font-size: var(--text-2xl);
-      max-width: 11ch;
+      max-width: 10ch;
     }
 
     .hero-copy p {
@@ -219,6 +196,7 @@
       border: 1px solid transparent;
       cursor: pointer;
       transition: all var(--transition);
+      font-weight: 600;
     }
 
     .btn-primary {
@@ -340,6 +318,7 @@
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+      font-weight: 700;
     }
 
     .card-body {
@@ -347,13 +326,13 @@
     }
 
     .card-title {
-      font-size: 1.85rem;
+      font-size: 1.4rem;
       margin-bottom: 8px;
     }
 
     .card-price {
       color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
       margin-top: var(--space-3);
       margin-bottom: var(--space-4);
     }
@@ -363,6 +342,7 @@
       color: var(--text);
       text-decoration: underline;
       text-underline-offset: 4px;
+      font-weight: 600;
     }
 
     .story-grid {
@@ -480,6 +460,14 @@
     }
 
     @media (max-width: 640px) {
+      .header-inner {
+        min-height: 78px;
+      }
+
+      .brand-logo {
+        height: 42px;
+      }
+
       .hero-media {
         min-height: 430px;
       }
@@ -505,11 +493,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Peachees Shop home">
-        <span class="brand-mark">P</span>
-        <span class="brand-name">
-          <strong>Peachees Shop</strong>
-          <span>Miami activewear edit</span>
-        </span>
+        <img src="./assets/logo-peachees.jpg" alt="Peachees Fit logo" class="brand-logo" />
       </a>
 
       <nav class="nav" aria-label="Primary">
@@ -528,8 +512,7 @@
           <p class="eyebrow">Peachees Fit · Drop 01</p>
           <h1>Soft, sculpted, and made to move beautifully.</h1>
           <p>
-            A refined concept store for Peachees Fit—designed with an editorial,
-            warm, elevated feel inspired by boutique luxury and adapted to modern activewear.
+            A refined concept store for Peachees Fit—designed with a warmer, cleaner, logo-led identity and adapted to modern activewear.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#collection">Shop the edit</a>
@@ -557,8 +540,7 @@
           </div>
           <div>
             <p>
-              The profile content highlights activewear for pilates, lifting, errands, and jumpsuits,
-              so this demo focuses on three hero products with a premium campaign-style presentation.
+              The demo focuses on three hero products with a premium, campaign-style presentation built around the Peachees Fit brand aesthetic.
             </p>
           </div>
         </div>
@@ -614,7 +596,7 @@
           <p class="eyebrow">Brand story</p>
           <h2>Luxury softness with gym-girl confidence.</h2>
           <p>
-            This concept blends a calm, elevated editorial layout with a feminine, confident activewear identity inspired by the Peachees Fit brand presence.
+            This concept blends a calm, elevated layout with a stronger brand-forward identity inspired by the Peachees Fit logo and visual direction.
           </p>
           <p>
             Warm neutrals, spacious composition, and strong product imagery make the shop feel more boutique than generic.
@@ -632,7 +614,7 @@
           </div>
           <div>
             <p>
-              This layout is built to present Peachees Fit as a curated drop, not a crowded catalog, with campaign-style visuals and a soft luxury tone.
+              This layout is built to present Peachees Fit as a curated drop, not a crowded catalog, with campaign-style visuals and a cleaner brand tone.
             </p>
           </div>
         </div>
