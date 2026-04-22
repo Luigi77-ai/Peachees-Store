@@ -460,63 +460,47 @@
 
     .story-value {
       position: absolute;
-      font-size: clamp(3.8rem, 2.7rem + 3vw, 6.2rem);
+      font-size: clamp(4.2rem, 3rem + 3vw, 6.8rem);
       font-weight: 900;
       letter-spacing: -0.05em;
       text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.16);
+      color: rgba(0, 0, 0, 0.24);
       line-height: 0.9;
       white-space: nowrap;
       opacity: 0;
-      animation: storyPulse 8s ease-in-out infinite;
-      text-shadow: 0 0 1px rgba(0, 0, 0, 0.08);
+      animation: storyPulse 6.8s ease-in-out infinite;
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
     }
 
-    .story-value.value-1 {
-      top: 3%;
-      left: 6%;
-      animation-delay: 0s;
-    }
-
-    .story-value.value-2 {
-      top: 14%;
-      right: 8%;
-      animation-delay: 1s;
-    }
-
-    .story-value.value-3 {
-      top: 44%;
-      left: 2%;
-      animation-delay: 2s;
-    }
-
-    .story-value.value-4 {
-      top: 62%;
-      right: 10%;
-      animation-delay: 3s;
-    }
-
-    .story-value.value-5 {
-      bottom: 6%;
-      left: 26%;
-      animation-delay: 4s;
-    }
+    .story-value.value-1  { top: 2%;  left: 3%;  animation-delay: 0s; }
+    .story-value.value-2  { top: 8%;  left: 26%; animation-delay: 0.5s; }
+    .story-value.value-3  { top: 12%; right: 6%; animation-delay: 1s; }
+    .story-value.value-4  { top: 30%; left: 1%; animation-delay: 1.5s; }
+    .story-value.value-5  { top: 36%; left: 32%; animation-delay: 2s; }
+    .story-value.value-6  { top: 42%; right: 4%; animation-delay: 2.5s; }
+    .story-value.value-7  { bottom: 22%; left: 8%; animation-delay: 3s; }
+    .story-value.value-8  { bottom: 14%; left: 38%; animation-delay: 3.5s; }
+    .story-value.value-9  { bottom: 8%; right: 8%; animation-delay: 4s; }
 
     @keyframes storyPulse {
       0% {
         opacity: 0;
         transform: scale(0.96);
       }
-      12% {
-        opacity: 0.16;
+      10% {
+        opacity: 0.18;
         transform: scale(1);
       }
-      30% {
-        opacity: 0.22;
+      28% {
+        opacity: 0.30;
         transform: scale(1);
       }
-      48% {
-        opacity: 0.12;
+      46% {
+        opacity: 0.24;
+        transform: scale(1.015);
+      }
+      64% {
+        opacity: 0.14;
         transform: scale(1.02);
       }
       100% {
@@ -730,34 +714,19 @@
       }
 
       .story-value {
-        font-size: clamp(2.7rem, 2rem + 4vw, 4.5rem);
-        color: rgba(0, 0, 0, 0.14);
+        font-size: clamp(2.8rem, 2.1rem + 4vw, 4.6rem);
+        color: rgba(0, 0, 0, 0.2);
       }
 
-      .story-value.value-1 {
-        top: 4%;
-        left: 2%;
-      }
-
-      .story-value.value-2 {
-        top: 18%;
-        right: 4%;
-      }
-
-      .story-value.value-3 {
-        top: 46%;
-        left: 0;
-      }
-
-      .story-value.value-4 {
-        top: 66%;
-        right: 6%;
-      }
-
-      .story-value.value-5 {
-        bottom: 10%;
-        left: 18%;
-      }
+      .story-value.value-1  { top: 2%; left: 2%; }
+      .story-value.value-2  { top: 10%; left: 28%; }
+      .story-value.value-3  { top: 16%; right: 2%; }
+      .story-value.value-4  { top: 34%; left: 0; }
+      .story-value.value-5  { top: 42%; left: 34%; }
+      .story-value.value-6  { top: 50%; right: 0; }
+      .story-value.value-7  { bottom: 24%; left: 4%; }
+      .story-value.value-8  { bottom: 14%; left: 36%; }
+      .story-value.value-9  { bottom: 8%; right: 4%; }
 
       .nav {
         display: none;
@@ -796,33 +765,19 @@
       }
 
       .story-value {
-        font-size: clamp(2rem, 1.5rem + 3vw, 3rem);
+        font-size: clamp(2rem, 1.5rem + 3vw, 3.2rem);
+        color: rgba(0, 0, 0, 0.18);
       }
 
-      .story-value.value-1 {
-        top: 6%;
-        left: 0;
-      }
-
-      .story-value.value-2 {
-        top: 20%;
-        right: 2%;
-      }
-
-      .story-value.value-3 {
-        top: 48%;
-        left: -2%;
-      }
-
-      .story-value.value-4 {
-        top: 70%;
-        right: 4%;
-      }
-
-      .story-value.value-5 {
-        bottom: 12%;
-        left: 10%;
-      }
+      .story-value.value-1  { top: 3%; left: 0; }
+      .story-value.value-2  { top: 12%; left: 24%; }
+      .story-value.value-3  { top: 20%; right: 0; }
+      .story-value.value-4  { top: 36%; left: -2%; }
+      .story-value.value-5  { top: 46%; left: 26%; }
+      .story-value.value-6  { top: 56%; right: -1%; }
+      .story-value.value-7  { bottom: 24%; left: 2%; }
+      .story-value.value-8  { bottom: 14%; left: 28%; }
+      .story-value.value-9  { bottom: 8%; right: 2%; }
 
       .footer-inner {
         flex-direction: column;
@@ -947,6 +902,10 @@
             <span class="story-value value-3">Movement</span>
             <span class="story-value value-4">Softness</span>
             <span class="story-value value-5">Energy</span>
+            <span class="story-value value-6">Power</span>
+            <span class="story-value value-7">Elevated</span>
+            <span class="story-value value-8">Balance</span>
+            <span class="story-value value-9">Sculpted</span>
           </div>
 
           <div class="story-grid">
