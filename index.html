@@ -8,12 +8,12 @@
     name="description"
     content="Peachees Shop — elevated activewear essentials with a soft editorial feel."
   />
-  <link rel="icon" type="image/jpeg" href="./assets/logo-peachees.jpg" />
+  <link rel="icon" type="image/png" href="./assets/Photo-logo.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   />
 
@@ -91,9 +91,9 @@
     h1, h2, h3 {
       margin: 0 0 var(--space-3);
       font-family: "Inter", sans-serif;
-      font-weight: 800;
+      font-weight: 900;
       line-height: 0.96;
-      letter-spacing: -0.06em;
+      letter-spacing: -0.07em;
       color: var(--text);
       text-transform: uppercase;
     }
@@ -109,7 +109,7 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(16px);
-      background: rgba(247, 243, 238, 0.92);
+      background: rgba(247, 243, 238, 0.94);
       border-bottom: 1px solid var(--line);
     }
 
@@ -118,17 +118,23 @@
       align-items: center;
       justify-content: space-between;
       gap: var(--space-4);
-      min-height: 86px;
+      min-height: 88px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: var(--space-3);
+    }
+
+    .brand-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 0;
     }
 
     .brand-logo {
-      height: 54px;
+      height: 52px;
       width: auto;
       object-fit: contain;
     }
@@ -493,7 +499,9 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Peachees Shop home">
-        <img src="./assets/logo-peachees.jpg" alt="Peachees Fit logo" class="brand-logo" />
+        <span class="brand-logo-wrap">
+          <img src="./assets/Photo-logo.png" alt="Peachees Fit logo" class="brand-logo" />
+        </span>
       </a>
 
       <nav class="nav" aria-label="Primary">
