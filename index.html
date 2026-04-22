@@ -463,62 +463,51 @@
 
     .story-copy-wrap {
       position: relative;
-      min-height: 100%;
+      min-height: 520px;
       display: flex;
       align-items: center;
-      z-index: 1;
+      justify-content: center;
     }
 
     .story-words {
       position: absolute;
       inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      z-index: 0;
       pointer-events: none;
       overflow: hidden;
-      z-index: 0;
     }
 
     .story-word {
       position: absolute;
-      font-size: clamp(2.4rem, 1.5rem + 3vw, 5.4rem);
+      font-size: clamp(2.8rem, 2rem + 2.8vw, 4.8rem);
       font-weight: 900;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(177, 119, 99, 0.12);
+      color: rgba(177, 119, 99, 0.14);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      line-height: 0.9;
       white-space: nowrap;
-      opacity: 0;
-      transform: scale(0.96) translateY(10px);
-      animation: brandWordFade 12s infinite;
     }
 
-    .story-word:nth-child(1) { animation-delay: 0s; }
-    .story-word:nth-child(2) { animation-delay: 3s; }
-    .story-word:nth-child(3) { animation-delay: 6s; }
-    .story-word:nth-child(4) { animation-delay: 9s; }
+    .story-word.word-1 {
+      top: 2%;
+      left: 2%;
+    }
 
-    @keyframes brandWordFade {
-      0% {
-        opacity: 0;
-        transform: scale(0.96) translateY(10px);
-      }
-      10% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-      22% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-      32% {
-        opacity: 0;
-        transform: scale(1.02) translateY(-8px);
-      }
-      100% {
-        opacity: 0;
-        transform: scale(1.02) translateY(-8px);
-      }
+    .story-word.word-2 {
+      top: 8%;
+      left: 28%;
+    }
+
+    .story-word.word-3 {
+      top: 0;
+      right: 24%;
+    }
+
+    .story-word.word-4 {
+      top: 10%;
+      right: 0;
     }
 
     .story-copy {
@@ -690,7 +679,7 @@
       }
 
       .story-copy-wrap {
-        min-height: 340px;
+        min-height: 380px;
       }
 
       .nav {
@@ -730,8 +719,15 @@
       }
 
       .story-word {
-        font-size: clamp(1.9rem, 1.4rem + 4vw, 3.2rem);
-        letter-spacing: 0.1em;
+        font-size: clamp(1.9rem, 1.4rem + 4vw, 3rem);
+      }
+
+      .story-word.word-2 {
+        left: 24%;
+      }
+
+      .story-word.word-3 {
+        right: 22%;
       }
 
       .footer-inner {
@@ -858,10 +854,10 @@
 
             <div class="story-copy-wrap">
               <div class="story-words" aria-hidden="true">
-                <span class="story-word">Confident</span>
-                <span class="story-word">Soft</span>
-                <span class="story-word">Elevated</span>
-                <span class="story-word">Strong</span>
+                <span class="story-word word-1">Soft</span>
+                <span class="story-word word-2">Strong</span>
+                <span class="story-word word-3">Elevated</span>
+                <span class="story-word word-4">Confident</span>
               </div>
 
               <div class="story-copy">
