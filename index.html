@@ -320,11 +320,6 @@
       object-fit: cover;
     }
 
-    .section {
-      padding: clamp(56px, 8vw, 100px) 0;
-      position: relative;
-    }
-
     .shared-luxury-band {
       position: relative;
       overflow: hidden;
@@ -368,6 +363,13 @@
     .section-head h2 {
       font-size: var(--text-xl);
       max-width: 12ch;
+    }
+
+    .section-lead {
+      font-size: clamp(1.02rem, 0.96rem + 0.35vw, 1.18rem);
+      line-height: 1.75;
+      color: #5f544b;
+      max-width: 56ch;
     }
 
     .collection-grid {
@@ -447,6 +449,7 @@
       grid-template-columns: 1fr 1fr;
       gap: clamp(24px, 4vw, 64px);
       align-items: center;
+      position: relative;
     }
 
     .story-image {
@@ -454,14 +457,79 @@
       overflow: hidden;
       box-shadow: var(--shadow);
       background: rgba(251, 248, 244, 0.78);
+      position: relative;
+      z-index: 2;
+    }
+
+    .story-copy-wrap {
+      position: relative;
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .story-words {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .story-word {
+      position: absolute;
+      font-size: clamp(2.4rem, 1.5rem + 3vw, 5.4rem);
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(177, 119, 99, 0.12);
+      white-space: nowrap;
+      opacity: 0;
+      transform: scale(0.96) translateY(10px);
+      animation: brandWordFade 12s infinite;
+    }
+
+    .story-word:nth-child(1) { animation-delay: 0s; }
+    .story-word:nth-child(2) { animation-delay: 3s; }
+    .story-word:nth-child(3) { animation-delay: 6s; }
+    .story-word:nth-child(4) { animation-delay: 9s; }
+
+    @keyframes brandWordFade {
+      0% {
+        opacity: 0;
+        transform: scale(0.96) translateY(10px);
+      }
+      10% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+      22% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+      32% {
+        opacity: 0;
+        transform: scale(1.02) translateY(-8px);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.02) translateY(-8px);
+      }
     }
 
     .story-copy {
-      background: rgba(251, 248, 244, 0.64);
+      position: relative;
+      z-index: 2;
+      background: rgba(251, 248, 244, 0.72);
       border: 1px solid rgba(24, 21, 19, 0.08);
       border-radius: var(--radius-lg);
       padding: clamp(20px, 3vw, 32px);
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 20px 50px rgba(53, 38, 29, 0.08);
     }
 
     .video-band {
@@ -504,6 +572,10 @@
 
     .video-band p {
       color: rgba(255,255,255,0.84);
+    }
+
+    .video-band .section-lead {
+      color: rgba(255,255,255,0.9);
     }
 
     .lookbook-block {
@@ -617,6 +689,10 @@
         width: 42%;
       }
 
+      .story-copy-wrap {
+        min-height: 340px;
+      }
+
       .nav {
         display: none;
       }
@@ -651,6 +727,11 @@
         width: 44%;
         bottom: -4%;
         right: 4%;
+      }
+
+      .story-word {
+        font-size: clamp(1.9rem, 1.4rem + 4vw, 3.2rem);
+        letter-spacing: 0.1em;
       }
 
       .footer-inner {
@@ -722,7 +803,7 @@
               <h2>Three essentials, styled like a boutique drop.</h2>
             </div>
             <div>
-              <p>
+              <p class="section-lead">
                 The demo focuses on three hero products with a premium, campaign-style presentation built around the Peachees Fit brand aesthetic.
               </p>
             </div>
@@ -774,15 +855,25 @@
             <div class="story-image">
               <img src="./assets/Photo6.png" alt="Peachees Fit lookbook image styled in an editorial setting" />
             </div>
-            <div class="story-copy">
-              <p class="eyebrow">Brand story</p>
-              <h2>Luxury softness with gym-girl confidence.</h2>
-              <p>
-                This concept blends a calm, elevated layout with a stronger brand-forward identity inspired by the Peachees Fit logo and visual direction.
-              </p>
-              <p>
-                Warm neutrals, spacious composition, and strong product imagery make the shop feel more boutique than generic.
-              </p>
+
+            <div class="story-copy-wrap">
+              <div class="story-words" aria-hidden="true">
+                <span class="story-word">Confident</span>
+                <span class="story-word">Soft</span>
+                <span class="story-word">Elevated</span>
+                <span class="story-word">Strong</span>
+              </div>
+
+              <div class="story-copy">
+                <p class="eyebrow">Brand story</p>
+                <h2>Luxury softness with gym-girl confidence.</h2>
+                <p>
+                  This concept blends a calm, elevated layout with a stronger brand-forward identity inspired by the Peachees Fit logo and visual direction.
+                </p>
+                <p>
+                  Warm neutrals, spacious composition, and strong product imagery make the shop feel more boutique than generic.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -805,7 +896,7 @@
               <h2>Styled for pilates, errands, and lifts.</h2>
             </div>
             <div>
-              <p>
+              <p class="section-lead">
                 This layout is built to present Peachees Fit as a curated drop, not a crowded catalog, with campaign-style visuals and a cleaner brand tone.
               </p>
             </div>
@@ -829,8 +920,8 @@
             <p class="eyebrow">Next drop</p>
             <h2>Join the list for the next Peachees release.</h2>
             <p>
-  Discover the latest Peachees styles and join the list to be first in line for new arrivals, exclusive drops, and special updates.
-</p>
+              Discover the latest Peachees styles and join the list to be first in line for new arrivals, exclusive drops, and special updates.
+            </p>
           </div>
 
           <form class="signup" action="#">
