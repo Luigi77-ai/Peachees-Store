@@ -444,12 +444,83 @@
       font-weight: 600;
     }
 
+    .story-block {
+      position: relative;
+      min-height: 620px;
+      overflow: hidden;
+    }
+
+    .story-values {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .story-value {
+      position: absolute;
+      bottom: -18%;
+      font-size: clamp(4.2rem, 3rem + 3.8vw, 7.2rem);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.28);
+      line-height: 0.88;
+      white-space: nowrap;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      animation: riseValue 10s linear infinite;
+    }
+
+    .story-value.value-1 {
+      left: 4%;
+      animation-delay: 0s;
+    }
+
+    .story-value.value-2 {
+      left: 29%;
+      animation-delay: 2.2s;
+    }
+
+    .story-value.value-3 {
+      right: 24%;
+      animation-delay: 4.4s;
+    }
+
+    .story-value.value-4 {
+      right: 2%;
+      animation-delay: 6.6s;
+    }
+
+    @keyframes riseValue {
+      0% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.26;
+      }
+      45% {
+        opacity: 0.28;
+      }
+      85% {
+        opacity: 0.18;
+      }
+      100% {
+        transform: translateY(-128%);
+        opacity: 0;
+      }
+    }
+
     .story-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: clamp(24px, 4vw, 64px);
       align-items: center;
-      position: relative;
+      min-height: 620px;
     }
 
     .story-image {
@@ -463,84 +534,17 @@
 
     .story-copy-wrap {
       position: relative;
-      min-height: 520px;
+      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .story-words {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .story-word {
-      position: absolute;
-      font-size: clamp(2.6rem, 1.9rem + 2.8vw, 4.6rem);
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.14);
-      writing-mode: vertical-lr;
-      text-orientation: mixed;
-      line-height: 0.9;
-      white-space: nowrap;
-      animation: storyWordsDown 8s ease-in-out infinite;
-    }
-
-    .story-word.word-1 {
-      left: 2%;
-      top: -8%;
-      animation-delay: 0s;
-    }
-
-    .story-word.word-2 {
-      left: 28%;
-      top: -14%;
-      animation-delay: 1.2s;
-    }
-
-    .story-word.word-3 {
-      right: 24%;
-      top: -10%;
-      animation-delay: 2.4s;
-    }
-
-    .story-word.word-4 {
-      right: 0;
-      top: -16%;
-      animation-delay: 3.6s;
-    }
-
-    @keyframes storyWordsDown {
-      0% {
-        transform: translateY(-24px);
-        opacity: 0.04;
-      }
-      20% {
-        opacity: 0.12;
-      }
-      50% {
-        transform: translateY(18px);
-        opacity: 0.16;
-      }
-      80% {
-        opacity: 0.10;
-      }
-      100% {
-        transform: translateY(40px);
-        opacity: 0.04;
-      }
-    }
-
     .story-copy {
       position: relative;
       z-index: 2;
-      background: rgba(251, 248, 244, 0.72);
-      border: 1px solid rgba(24, 21, 19, 0.08);
+      background: rgba(251, 248, 244, 0.78);
+      border: 1px solid rgba(24, 21, 19, 0.1);
       border-radius: var(--radius-lg);
       padding: clamp(20px, 3vw, 32px);
       backdrop-filter: blur(6px);
@@ -704,8 +708,18 @@
         width: 42%;
       }
 
-      .story-copy-wrap {
-        min-height: 380px;
+      .story-block,
+      .story-grid {
+        min-height: auto;
+      }
+
+      .story-block {
+        padding: 24px 0;
+      }
+
+      .story-value {
+        font-size: clamp(2.8rem, 2.2rem + 4vw, 4.6rem);
+        color: rgba(0, 0, 0, 0.18);
       }
 
       .nav {
@@ -744,16 +758,16 @@
         right: 4%;
       }
 
-      .story-word {
-        font-size: clamp(1.8rem, 1.3rem + 4vw, 2.8rem);
+      .story-value {
+        font-size: clamp(2.2rem, 1.7rem + 4vw, 3.4rem);
       }
 
-      .story-word.word-2 {
-        left: 24%;
+      .story-value.value-2 {
+        left: 25%;
       }
 
-      .story-word.word-3 {
-        right: 22%;
+      .story-value.value-3 {
+        right: 20%;
       }
 
       .footer-inner {
@@ -872,20 +886,20 @@
           </div>
         </div>
 
-        <div id="story" class="band-block">
+        <div id="story" class="band-block story-block">
+          <div class="story-values" aria-hidden="true">
+            <span class="story-value value-1">Confidence</span>
+            <span class="story-value value-2">Strength</span>
+            <span class="story-value value-3">Movement</span>
+            <span class="story-value value-4">Softness</span>
+          </div>
+
           <div class="story-grid">
             <div class="story-image">
               <img src="./assets/Photo6.png" alt="Peachees Fit lookbook image styled in an editorial setting" />
             </div>
 
             <div class="story-copy-wrap">
-              <div class="story-words" aria-hidden="true">
-                <span class="story-word word-1">Soft</span>
-                <span class="story-word word-2">Strong</span>
-                <span class="story-word word-3">Elevated</span>
-                <span class="story-word word-4">Confident</span>
-              </div>
-
               <div class="story-copy">
                 <p class="eyebrow">Brand story</p>
                 <h2>Luxury softness with gym-girl confidence.</h2>
