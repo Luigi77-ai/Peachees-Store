@@ -8,7 +8,7 @@
     name="description"
     content="Peachees Shop — elevated activewear essentials with a soft editorial feel."
   />
-  <link rel="icon" type="image/png" href="./assets/Photo-logo.png" />
+  <link rel="icon" type="image/jpeg" href="./assets/logo.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,7 +51,7 @@
       --text-base: clamp(1rem, 0.97rem + 0.2vw, 1.125rem);
       --text-lg: clamp(1.125rem, 1.02rem + 0.45vw, 1.4rem);
       --text-xl: clamp(1.45rem, 1.2rem + 0.9vw, 2.1rem);
-      --text-2xl: clamp(2.4rem, 2rem + 2vw, 4.8rem);
+      --text-2xl: clamp(2.5rem, 2rem + 2.2vw, 5rem);
 
       --container: 1180px;
       --transition: 220ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -70,9 +70,20 @@
       text-rendering: optimizeLegibility;
     }
 
-    img { display: block; max-width: 100%; height: auto; }
-    a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; }
+    img, video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input {
+      font: inherit;
+    }
 
     .container {
       width: min(100% - 32px, var(--container));
@@ -107,7 +118,7 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
       backdrop-filter: blur(16px);
       background: rgba(247, 243, 238, 0.94);
       border-bottom: 1px solid var(--line);
@@ -163,25 +174,73 @@
       transition: width var(--transition);
     }
 
-    .nav a:hover::after { width: 100%; }
+    .nav a:hover::after {
+      width: 100%;
+    }
 
     .hero {
-      padding: clamp(56px, 8vw, 100px) 0 clamp(40px, 7vw, 88px);
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #1a1512;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to right, rgba(12, 10, 9, 0.76), rgba(12, 10, 9, 0.38)),
+        linear-gradient(to top, rgba(12, 10, 9, 0.42), rgba(12, 10, 9, 0.12));
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: clamp(56px, 8vw, 100px) 0;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: clamp(28px, 5vw, 64px);
       align-items: center;
     }
 
+    .hero-copy {
+      color: var(--white);
+      max-width: 760px;
+    }
+
+    .hero-copy .eyebrow {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
     .hero-copy h1 {
       font-size: var(--text-2xl);
-      max-width: 10ch;
+      max-width: 9ch;
+      color: var(--white);
+      margin-bottom: var(--space-4);
     }
 
     .hero-copy p {
+      color: rgba(255, 255, 255, 0.84);
       max-width: 34rem;
     }
 
@@ -217,46 +276,42 @@
     }
 
     .btn-secondary {
-      border-color: var(--line);
-      background: transparent;
-      color: var(--text);
+      border-color: rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
     }
 
     .btn-secondary:hover {
-      background: var(--surface);
+      background: rgba(255,255,255,0.14);
     }
 
-    .hero-media {
+    .hero-card {
       position: relative;
-      min-height: 620px;
-    }
-
-    .hero-image-main,
-    .hero-image-float {
-      position: absolute;
-      overflow: hidden;
+      z-index: 2;
+      margin-left: auto;
+      width: min(100%, 390px);
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(14px);
       border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      background: var(--surface);
+      padding: clamp(22px, 3vw, 30px);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+      color: var(--white);
     }
 
-    .hero-image-main {
-      inset: 0 12% 0 0;
+    .hero-card .eyebrow {
+      color: rgba(255,255,255,0.72);
     }
 
-    .hero-image-float {
-      width: 40%;
-      right: 0;
-      bottom: 7%;
-      border-radius: 22px;
-      border: 8px solid var(--bg);
+    .hero-card h3 {
+      color: var(--white);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
     }
 
-    .hero-image-main img,
-    .hero-image-float img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .hero-card p {
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 0;
     }
 
     .section {
@@ -443,17 +498,16 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-media {
-        min-height: 520px;
-        order: -1;
+      .hero {
+        min-height: auto;
       }
 
-      .hero-image-main {
-        inset: 0 10% 0 0;
+      .hero-inner {
+        padding: 72px 0 64px;
       }
 
-      .hero-image-float {
-        width: 42%;
+      .hero-card {
+        margin-left: 0;
       }
 
       .nav {
@@ -474,18 +528,8 @@
         height: 42px;
       }
 
-      .hero-media {
-        min-height: 430px;
-      }
-
-      .hero-image-main {
-        inset: 0 0 0 0;
-      }
-
-      .hero-image-float {
-        width: 44%;
-        bottom: -4%;
-        right: 4%;
+      .hero-copy h1 {
+        max-width: 10ch;
       }
 
       .footer-inner {
@@ -500,7 +544,7 @@
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Peachees Shop home">
         <span class="brand-logo-wrap">
-          <img src="./assets/Photo-logo.png" alt="Peachees Fit logo" class="brand-logo" />
+          <img src="./assets/logo.jpg" alt="Peachees Fit logo" class="brand-logo" />
         </span>
       </a>
 
@@ -515,26 +559,34 @@
 
   <main id="top">
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Peachees Fit · Drop 01</p>
-          <h1>Soft, sculpted, and made to move beautifully.</h1>
-          <p>
-            A refined concept store for Peachees Fit—designed with a warmer, cleaner, logo-led identity and adapted to modern activewear.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#collection">Shop the edit</a>
-            <a class="btn btn-secondary" href="https://www.instagram.com/peacheesfit_/" target="_blank" rel="noopener noreferrer">View Instagram</a>
-          </div>
-        </div>
+      <div class="hero-video" aria-hidden="true">
+        <video autoplay muted loop playsinline>
+          <source src="./assets/WhatsApp Video 2026-04-22 at 12.57.54 PM.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-overlay"></div>
 
-        <div class="hero-media">
-          <div class="hero-image-main">
-            <img src="./assets/Photo1.png" alt="Peachees Fit editorial campaign image with activewear model" />
+      <div class="hero-inner">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Peachees Fit · Drop 01</p>
+            <h1>Soft, sculpted, and made to move beautifully.</h1>
+            <p>
+              A refined concept store for Peachees Fit—designed with a warmer, cleaner, logo-led identity and adapted to modern activewear.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#collection">Shop the edit</a>
+              <a class="btn btn-secondary" href="https://www.instagram.com/peacheesfit_/" target="_blank" rel="noopener noreferrer">View Instagram</a>
+            </div>
           </div>
-          <div class="hero-image-float">
-            <img src="./assets/Photo2.png" alt="Close-up detail of Peachees Fit fabric and silhouette" />
-          </div>
+
+          <aside class="hero-card">
+            <p class="eyebrow">New visual direction</p>
+            <h3>Video-led brand intro</h3>
+            <p>
+              The opening section now uses your uploaded campaign video as the background so the page feels more premium, dynamic, and brand-forward.
+            </p>
+          </aside>
         </div>
       </div>
     </section>
