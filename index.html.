@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peachees Shop</title>
+  <meta
+    name="description"
+    content="Peachees Shop — elevated activewear essentials with a soft editorial feel."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f7f3ee;
+      --surface: #fbf8f4;
+      --surface-2: #efe7de;
+      --text: #2b221c;
+      --muted: #7d7065;
+      --line: rgba(43, 34, 28, 0.12);
+      --accent: #c98f79;
+      --accent-deep: #b17763;
+      --white: #ffffff;
+
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+      --shadow: 0 24px 70px rgba(53, 38, 29, 0.08);
+
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+
+      --text-xs: clamp(0.75rem, 0.72rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.84rem + 0.2vw, 1rem);
+      --text-base: clamp(1rem, 0.97rem + 0.2vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1.02rem + 0.45vw, 1.4rem);
+      --text-xl: clamp(1.7rem, 1.3rem + 1vw, 2.5rem);
+      --text-2xl: clamp(2.5rem, 2rem + 2vw, 4.75rem);
+
+      --container: 1180px;
+      --transition: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      font-size: var(--text-base);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+
+    .container {
+      width: min(100% - 32px, var(--container));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 var(--space-3);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: var(--text-xs);
+      color: var(--muted);
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 var(--space-3);
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    p {
+      margin: 0 0 var(--space-3);
+      color: var(--muted);
+      max-width: 68ch;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(247, 243, 238, 0.92);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      min-height: 76px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: var(--text-lg);
+      background: var(--surface);
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .brand-name strong {
+      font-size: var(--text-sm);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .brand-name span {
+      font-size: var(--text-xs);
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      gap: var(--space-5);
+      font-size: var(--text-sm);
+      color: var(--muted);
+    }
+
+    .nav a {
+      position: relative;
+      padding-block: 6px;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--text);
+      transition: width var(--transition);
+    }
+
+    .nav a:hover::after { width: 100%; }
+
+    .hero {
+      padding: clamp(56px, 8vw, 100px) 0 clamp(40px, 7vw, 88px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-size: var(--text-2xl);
+      max-width: 11ch;
+    }
+
+    .hero-copy p {
+      max-width: 34rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 16px 30px rgba(177, 119, 99, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-deep);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: transparent;
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface);
+    }
+
+    .hero-media {
+      position: relative;
+      min-height: 620px;
+    }
+
+    .hero-image-main,
+    .hero-image-float {
+      position: absolute;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      background: var(--surface);
+    }
+
+    .hero-image-main {
+      inset: 0 12% 0 0;
+    }
+
+    .hero-image-float {
+      width: 40%;
+      right: 0;
+      bottom: 7%;
+      border-radius: 22px;
+      border: 8px solid var(--bg);
+    }
+
+    .hero-image-main img,
+    .hero-image-float img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .section {
+      padding: clamp(56px, 8vw, 100px) 0;
+    }
+
+    .section-alt {
+      background: linear-gradient(to bottom, transparent, rgba(239, 231, 222, 0.55));
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+      align-items: end;
+    }
+
+    .section-head h2 {
+      font-size: var(--text-xl);
+      max-width: 12ch;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-image {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #e8dfd5;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(43,34,28,0.08);
+      color: var(--text);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .card-body {
+      padding: var(--space-5);
+    }
+
+    .card-title {
+      font-size: 1.85rem;
+      margin-bottom: 8px;
+    }
+
+    .card-price {
+      color: var(--text);
+      font-weight: 600;
+      margin-top: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .text-link {
+      font-size: var(--text-sm);
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 4vw, 64px);
+      align-items: center;
+    }
+
+    .story-image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr 0.9fr;
+      gap: var(--space-4);
+    }
+
+    .lookbook-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      min-height: 240px;
+      background: #e5ddd4;
+    }
+
+    .lookbook-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cta-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 4vw, 44px);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--space-6);
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .signup {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .signup input {
+      min-width: 240px;
+      flex: 1 1 240px;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .site-footer {
+      padding: var(--space-8) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      color: var(--muted);
+      font-size: var(--text-sm);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-head,
+      .story-grid,
+      .cta-panel,
+      .collection-grid,
+      .lookbook-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-media {
+        min-height: 520px;
+        order: -1;
+      }
+
+      .hero-image-main {
+        inset: 0 10% 0 0;
+      }
+
+      .hero-image-float {
+        width: 42%;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .signup {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-media {
+        min-height: 430px;
+      }
+
+      .hero-image-main {
+        inset: 0 0 0 0;
+      }
+
+      .hero-image-float {
+        width: 44%;
+        bottom: -4%;
+        right: 4%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Peachees Shop home">
+        <span class="brand-mark">P</span>
+        <span class="brand-name">
+          <strong>Peachees Shop</strong>
+          <span>Miami activewear edit</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#collection">Collection</a>
+        <a href="#story">Story</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#drop">Next Drop</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Peachees Fit · Drop 01</p>
+          <h1>Soft, sculpted, and made to move beautifully.</h1>
+          <p>
+            A refined concept store for Peachees Fit—designed with an editorial,
+            warm, elevated feel inspired by boutique luxury and adapted to modern activewear.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#collection">Shop the edit</a>
+            <a class="btn btn-secondary" href="https://www.instagram.com/peacheesfit_/" target="_blank" rel="noopener noreferrer">View Instagram</a>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-image-main">
+            <img src="./assets/hero-main.jpg" alt="Peachees Fit editorial campaign image with activewear model" />
+          </div>
+          <div class="hero-image-float">
+            <img src="./assets/hero-detail.jpg" alt="Close-up detail of Peachees Fit fabric and silhouette" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="collection" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Collection</p>
+            <h2>Three essentials, styled like a boutique drop.</h2>
+          </div>
+          <div>
+            <p>
+              The profile content highlights activewear for pilates, lifting, errands, and jumpsuits,
+              so this demo focuses on three hero products with a premium campaign-style presentation. 
+            </p>
+          </div>
+        </div>
+
+        <div class="collection-grid">
+          <article class="card">
+            <div class="card-image">
+              <span class="badge">New</span>
+              <img src="./assets/product-set.jpg" alt="Luna Sculpt Set by Peachees Fit" />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Luna Sculpt Set</h3>
+              <p>Second-skin support with clean seams and a flattering high-rise fit for studio or street.</p>
+              <div class="card-price">$89.00</div>
+              <a href="#drop" class="text-link">View details</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-image">
+              <span class="badge">Best seller</span>
+              <img src="./assets/product-jumpsuit.jpg" alt="Halo One Piece by Peachees Fit" />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Halo One Piece</h3>
+              <p>A sleek jumpsuit made to contour softly and move effortlessly through every part of the day.</p>
+              <div class="card-price">$98.00</div>
+              <a href="#drop" class="text-link">View details</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-image">
+              <img src="./assets/product-flare.jpg" alt="Cloud Flare Pant by Peachees Fit" />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Cloud Flare Pant</h3>
+              <p>High-waisted flare pants with lounge softness and a polished silhouette for off-duty styling.</p>
+              <div class="card-price">$79.00</div>
+              <a href="#drop" class="text-link">View details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="section section-alt">
+      <div class="container story-grid">
+        <div class="story-image">
+          <img src="./assets/lookbook-1.jpg" alt="Peachees Fit lookbook image styled in an editorial setting" />
+        </div>
+        <div>
+          <p class="eyebrow">Brand story</p>
+          <h2>Luxury softness with gym-girl confidence.</h2>
+          <p>
+            Silk & Willow leans into soft palettes, airy composition, and intentional elegance,
+            and this concept translates that same editorial calm into a feminine fitness brand aesthetic. [web:167][web:171]
+          </p>
+          <p>
+            For Peachees Fit, that means warm neutrals, spacious product storytelling, and imagery that feels aspirational without losing athletic edge. [web:89][web:92]
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="lookbook" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Lookbook</p>
+            <h2>Styled for pilates, errands, and lifts.</h2>
+          </div>
+          <div>
+            <p>
+              The visible Peachees Fit content mentions the Luna Set, flare high-waisted pants, and jumpsuits,
+              so the layout is built to showcase those pieces as a curated drop rather than a large catalog. [web:89][web:175][web:92]
+            </p>
+          </div>
+        </div>
+
+        <div class="lookbook-grid">
+          <figure class="lookbook-item">
+            <img src="./assets/lookbook-1.jpg" alt="Peachees Fit campaign image 1" />
+          </figure>
+          <figure class="lookbook-item">
+            <img src="./assets/lookbook-2.jpg" alt="Peachees Fit campaign image 2" />
+          </figure>
+          <figure class="lookbook-item">
+            <img src="./assets/lookbook-3.jpg" alt="Peachees Fit campaign image 3" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="drop" class="section">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <p class="eyebrow">Next drop</p>
+            <h2>Join the list for the next Peachees release.</h2>
+            <p>
+              This is a concept storefront demo today, but the structure is already suitable to evolve into a real Shopify store later.
+            </p>
+          </div>
+
+          <form class="signup" action="#">
+            <input type="email" placeholder="Enter your email" aria-label="Email address" />
+            <button type="submit" class="btn btn-primary">Notify me</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>Peachees Shop concept demo · designed for future Shopify migration.</div>
+      <div class="footer-links">
+        <a href="#collection">Collection</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="https://www.instagram.com/peacheesfit_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
