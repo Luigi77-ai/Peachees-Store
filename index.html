@@ -452,7 +452,10 @@
 
     .story-values {
       position: absolute;
-      inset: 0;
+      top: 88px;
+      bottom: 74px;
+      left: 0;
+      right: 0;
       z-index: 0;
       pointer-events: none;
       overflow: hidden;
@@ -460,36 +463,34 @@
 
     .story-value {
       position: absolute;
-      bottom: -18%;
-      font-size: clamp(4.2rem, 3rem + 3.8vw, 7.2rem);
+      bottom: -22%;
+      font-size: clamp(4.4rem, 3.1rem + 3.9vw, 7.4rem);
       font-weight: 900;
-      letter-spacing: 0.06em;
+      letter-spacing: -0.04em;
       text-transform: uppercase;
-      color: rgba(0, 0, 0, 0.28);
-      line-height: 0.88;
+      color: rgba(0, 0, 0, 0.22);
+      line-height: 0.9;
       white-space: nowrap;
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
       animation: riseValue 10s linear infinite;
     }
 
     .story-value.value-1 {
-      left: 4%;
+      left: 2%;
       animation-delay: 0s;
     }
 
     .story-value.value-2 {
-      left: 29%;
+      left: 18%;
       animation-delay: 2.2s;
     }
 
     .story-value.value-3 {
-      right: 24%;
+      left: 44%;
       animation-delay: 4.4s;
     }
 
     .story-value.value-4 {
-      right: 2%;
+      left: 70%;
       animation-delay: 6.6s;
     }
 
@@ -499,16 +500,16 @@
         opacity: 0;
       }
       10% {
-        opacity: 0.26;
-      }
-      45% {
-        opacity: 0.28;
-      }
-      85% {
         opacity: 0.18;
       }
+      45% {
+        opacity: 0.22;
+      }
+      82% {
+        opacity: 0.14;
+      }
       100% {
-        transform: translateY(-128%);
+        transform: translateY(-138%);
         opacity: 0;
       }
     }
@@ -717,9 +718,26 @@
         padding: 24px 0;
       }
 
+      .story-values {
+        top: 56px;
+        bottom: 42px;
+      }
+
       .story-value {
         font-size: clamp(2.8rem, 2.2rem + 4vw, 4.6rem);
-        color: rgba(0, 0, 0, 0.18);
+        color: rgba(0, 0, 0, 0.16);
+      }
+
+      .story-value.value-2 {
+        left: 22%;
+      }
+
+      .story-value.value-3 {
+        left: 48%;
+      }
+
+      .story-value.value-4 {
+        left: 72%;
       }
 
       .nav {
@@ -758,16 +776,29 @@
         right: 4%;
       }
 
+      .story-values {
+        top: 48px;
+        bottom: 34px;
+      }
+
       .story-value {
-        font-size: clamp(2.2rem, 1.7rem + 4vw, 3.4rem);
+        font-size: clamp(2.1rem, 1.7rem + 3vw, 3.2rem);
+      }
+
+      .story-value.value-1 {
+        left: 0;
       }
 
       .story-value.value-2 {
-        left: 25%;
+        left: 26%;
       }
 
       .story-value.value-3 {
-        right: 20%;
+        left: 52%;
+      }
+
+      .story-value.value-4 {
+        left: 76%;
       }
 
       .footer-inner {
