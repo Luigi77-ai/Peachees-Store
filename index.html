@@ -325,24 +325,24 @@
       position: relative;
     }
 
-    .luxury-pattern {
+    .shared-luxury-band {
       position: relative;
-      isolation: isolate;
       overflow: hidden;
+      padding: clamp(56px, 8vw, 100px) 0;
+      isolation: isolate;
     }
 
-    .luxury-pattern::before {
+    .shared-luxury-band::before {
       content: "";
       position: absolute;
       inset: 0;
       z-index: -2;
       background:
         linear-gradient(rgba(247, 243, 238, 0.92), rgba(247, 243, 238, 0.92)),
-        url("./assets/fotomp3.jpg") center/cover no-repeat;
-      opacity: 1;
+        url("./assets/descarga.png") center center / cover no-repeat;
     }
 
-    .luxury-pattern::after {
+    .shared-luxury-band::after {
       content: "";
       position: absolute;
       inset: 0;
@@ -353,8 +353,8 @@
       pointer-events: none;
     }
 
-    .section-alt {
-      background: linear-gradient(to bottom, transparent, rgba(239, 231, 222, 0.55));
+    .band-block + .band-block {
+      margin-top: clamp(48px, 7vw, 84px);
     }
 
     .section-head {
@@ -713,76 +713,78 @@
       </div>
     </section>
 
-    <section id="collection" class="section luxury-pattern">
+    <section class="shared-luxury-band">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Collection</p>
-            <h2>Three essentials, styled like a boutique drop.</h2>
+        <div id="collection" class="band-block">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Collection</p>
+              <h2>Three essentials, styled like a boutique drop.</h2>
+            </div>
+            <div>
+              <p>
+                The demo focuses on three hero products with a premium, campaign-style presentation built around the Peachees Fit brand aesthetic.
+              </p>
+            </div>
           </div>
-          <div>
-            <p>
-              The demo focuses on three hero products with a premium, campaign-style presentation built around the Peachees Fit brand aesthetic.
-            </p>
+
+          <div class="collection-grid">
+            <article class="card">
+              <div class="card-image">
+                <span class="badge">New</span>
+                <img src="./assets/Photo3.png" alt="Luna Sculpt Set by Peachees Fit" />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Luna Sculpt Set</h3>
+                <p>Second-skin support with clean seams and a flattering high-rise fit for studio or street.</p>
+                <div class="card-price">$89.00</div>
+                <a href="#drop" class="text-link">View details</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-image">
+                <span class="badge">Best seller</span>
+                <img src="./assets/Photo4.png" alt="Halo One Piece by Peachees Fit" />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Halo One Piece</h3>
+                <p>A sleek one-piece look made to contour softly and move effortlessly through every part of the day.</p>
+                <div class="card-price">$98.00</div>
+                <a href="#drop" class="text-link">View details</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-image">
+                <img src="./assets/Photo5.png" alt="Cloud Flare Pant by Peachees Fit" />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Cloud Flare Pant</h3>
+                <p>High-waisted flare styling with lounge softness and a polished silhouette for off-duty looks.</p>
+                <div class="card-price">$79.00</div>
+                <a href="#drop" class="text-link">View details</a>
+              </div>
+            </article>
           </div>
         </div>
 
-        <div class="collection-grid">
-          <article class="card">
-            <div class="card-image">
-              <span class="badge">New</span>
-              <img src="./assets/2x2_front.jpg" alt="Luna Sculpt Set by Peachees Fit" />
+        <div id="story" class="band-block">
+          <div class="story-grid">
+            <div class="story-image">
+              <img src="./assets/Photo6.png" alt="Peachees Fit lookbook image styled in an editorial setting" />
             </div>
-            <div class="card-body">
-              <h3 class="card-title">Luna Sculpt Set</h3>
-              <p>Second-skin support with clean seams and a flattering high-rise fit for studio or street.</p>
-              <div class="card-price">$89.00</div>
-              <a href="#drop" class="text-link">View details</a>
+            <div class="story-copy">
+              <p class="eyebrow">Brand story</p>
+              <h2>Luxury softness with gym-girl confidence.</h2>
+              <p>
+                This concept blends a calm, elevated layout with a stronger brand-forward identity inspired by the Peachees Fit logo and visual direction.
+              </p>
+              <p>
+                Warm neutrals, spacious composition, and strong product imagery make the shop feel more boutique than generic.
+              </p>
             </div>
-          </article>
-
-          <article class="card">
-            <div class="card-image">
-              <span class="badge">Best seller</span>
-              <img src="./assets/Photo3.png" alt="Halo One Piece by Peachees Fit" />
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">Halo One Piece</h3>
-              <p>A sleek one-piece look made to contour softly and move effortlessly through every part of the day.</p>
-              <div class="card-price">$98.00</div>
-              <a href="#drop" class="text-link">View details</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-image">
-              <img src="./assets/Photo4.png" alt="Cloud Flare Pant by Peachees Fit" />
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">Cloud Flare Pant</h3>
-              <p>High-waisted flare styling with lounge softness and a polished silhouette for off-duty looks.</p>
-              <div class="card-price">$79.00</div>
-              <a href="#drop" class="text-link">View details</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="story" class="section luxury-pattern">
-      <div class="container story-grid">
-        <div class="story-image">
-          <img src="./assets/Photo5.png" alt="Peachees Fit lookbook image styled in an editorial setting" />
-        </div>
-        <div class="story-copy">
-          <p class="eyebrow">Brand story</p>
-          <h2>Luxury softness with gym-girl confidence.</h2>
-          <p>
-            This concept blends a calm, elevated layout with a stronger brand-forward identity inspired by the Peachees Fit logo and visual direction.
-          </p>
-          <p>
-            Warm neutrals, spacious composition, and strong product imagery make the shop feel more boutique than generic.
-          </p>
+          </div>
         </div>
       </div>
     </section>
