@@ -322,6 +322,35 @@
 
     .section {
       padding: clamp(56px, 8vw, 100px) 0;
+      position: relative;
+    }
+
+    .luxury-pattern {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .luxury-pattern::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(rgba(247, 243, 238, 0.92), rgba(247, 243, 238, 0.92)),
+        url("./assets/fotomp3.jpg") center/cover no-repeat;
+      opacity: 1;
+    }
+
+    .luxury-pattern::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(201, 143, 121, 0.10), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(201, 143, 121, 0.08), transparent 28%);
+      pointer-events: none;
     }
 
     .section-alt {
@@ -348,11 +377,12 @@
     }
 
     .card {
-      background: var(--surface);
+      background: rgba(251, 248, 244, 0.88);
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
       overflow: hidden;
       transition: transform var(--transition), box-shadow var(--transition);
+      backdrop-filter: blur(2px);
     }
 
     .card:hover {
@@ -423,6 +453,15 @@
       border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow);
+      background: rgba(251, 248, 244, 0.78);
+    }
+
+    .story-copy {
+      background: rgba(251, 248, 244, 0.64);
+      border: 1px solid rgba(24, 21, 19, 0.08);
+      border-radius: var(--radius-lg);
+      padding: clamp(20px, 3vw, 32px);
+      backdrop-filter: blur(4px);
     }
 
     .video-band {
@@ -674,7 +713,7 @@
       </div>
     </section>
 
-    <section id="collection" class="section">
+    <section id="collection" class="section luxury-pattern">
       <div class="container">
         <div class="section-head">
           <div>
@@ -730,12 +769,12 @@
       </div>
     </section>
 
-    <section id="story" class="section section-alt">
+    <section id="story" class="section luxury-pattern">
       <div class="container story-grid">
         <div class="story-image">
           <img src="./assets/Photo5.png" alt="Peachees Fit lookbook image styled in an editorial setting" />
         </div>
-        <div>
+        <div class="story-copy">
           <p class="eyebrow">Brand story</p>
           <h2>Luxury softness with gym-girl confidence.</h2>
           <p>
@@ -775,7 +814,7 @@
               <img src="./assets/Photo6.png" alt="Peachees Fit campaign image 1" />
             </figure>
             <figure class="lookbook-item">
-              <img src="./assets/2x2_back.jpg" alt="Peachees Fit campaign image 2" />
+              <img src="./assets/Photo5.png" alt="Peachees Fit campaign image 2" />
             </figure>
             <figure class="lookbook-item">
               <img src="./assets/Photo2.png" alt="Peachees Fit campaign image 3" />
